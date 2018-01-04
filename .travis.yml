@@ -5,5 +5,3 @@ rvm:
 before_install:
   - gem update --system
   - gem update bundler
-install:
-  - gem install test-unit
