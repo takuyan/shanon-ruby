@@ -3,11 +3,12 @@ require 'openssl'
 
 module Shanon
   class AbstractClient
-    attr_reader :secrets, :conn
+    attr_reader :secrets, :conn, :token
 
     def initialize
       @secrets = get_secrets
       @conn = build_client
+      @token = get_token
     end
 
     private
@@ -30,6 +31,10 @@ module Shanon
         builder.use Faraday::Response::Logger
         builder.use Faraday::Adapter::NetHttp
       end
+    end
+
+    def get_token
+      # override by Authenticatable
     end
   end
 end
