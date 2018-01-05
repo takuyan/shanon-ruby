@@ -22,7 +22,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Shanon.configure do |config|
+  config.api_key = 'your_consumer_api_key'
+  config.fqdn = 'your-consumer-name.smktg.jp'
+  config.password = 'your_consumer_password'
+  config.secret_key = 'your_consumer_secret_key'
+end
+
+client = Shanon::Clients::AuthenticationClient.new
+puts client.get # => token
+
+client = Shanon::Clients::VisitorClient.new
+puts client.get # => visitors
+```
 
 ## Development
 
