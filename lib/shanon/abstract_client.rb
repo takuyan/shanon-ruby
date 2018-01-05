@@ -36,5 +36,19 @@ module Shanon
     def get_token
       # override by Authenticatable
     end
+
+    def params_with_signature(opts={})
+      seeds = { api_key: secrets[:api_key] }.merge!(opts)
+
+      base = seeds.sort.reduce('') do |s, (k, v)|
+        s.concat %(#{k}#{v})
+      end
+
+      seeds.merge!({ api_sig: get_signature(base) })
+    end
+
+    def get_signature(base)
+      ::OpenSSL::HMAC.hexdigest('sha1', secrets[:secret_key], base)
+    end
   end
 end
