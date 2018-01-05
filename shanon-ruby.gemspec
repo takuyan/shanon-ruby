@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Client for accessing Shanon Marketing Platform APIs}
   spec.description   = %q{Client for accessing Shanon Marketing Platform APIs}
-  spec.homepage      = 'https://github.com/takuyan/shanon-api-ruby-client'
+  spec.homepage      = 'https://github.com/takuyan/shanon-ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
