@@ -39,6 +39,7 @@ module Shanon
 
     def params_with_signature(opts={})
       seeds = { api_key: secrets[:api_key] }.merge!(opts)
+      seeds.merge!(token: token) if token
 
       base = seeds.sort.reduce('') do |s, (k, v)|
         s.concat %(#{k}#{v})
