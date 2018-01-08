@@ -6,13 +6,7 @@ module Shanon
       def get
         params = params_with_signature(password: secrets[:password])
         response = conn.get(PATH, params)
-        parse(response.body)
-      end
-
-      private
-
-      def parse(xml)
-        ::Ox.parse(xml).Response.Token.text
+        response.body
       end
     end
   end
