@@ -28,11 +28,11 @@ Shanon.configure do |config|
   config.secret_key = 'your_consumer_secret_key'
 end
 
-client = Shanon::Clients::AuthenticationClient.new
-puts client.get # => token
+authentication = Shanon::Clients::AuthenticationClient.new
+puts authentication.get # => "<xml ..."
 
-client = Shanon::Clients::VisitorClient.new
-puts client.get # => visitors
+visitor = Shanon::Clients::VisitorClient.new
+puts visitor.get # => "<xml ..."
 ```
 
 ## Development
