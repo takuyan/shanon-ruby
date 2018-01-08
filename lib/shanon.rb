@@ -3,8 +3,9 @@ require 'shanon/version'
 require 'shanon/config'
 require 'shanon/abstract_client'
 require 'shanon/authenticatable'
-require 'shanon/clients/authentication_client'
-require 'shanon/clients/visitor_client'
+
+# clients
+Dir[File.join(File.dirname(__FILE__), 'shanon/clients/*_client.rb')].each {|f| require f }
 
 module Shanon
   # Your code goes here...
