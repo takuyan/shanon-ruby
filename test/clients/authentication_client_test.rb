@@ -9,6 +9,6 @@ class AuthenticationClientTest < BaseClientTest
   end
 
   test 'should return token' do
-    assert_equal @dummy_token, @client.get
+    assert { @client.get.include?(@dummy_token) }
   end
 end

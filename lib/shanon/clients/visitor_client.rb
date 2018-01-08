@@ -13,13 +13,7 @@ module Shanon
       def get(opts={})
         params = params_with_signature(opts)
         response = conn.get PATH, params
-        parse(response.body)
-      end
-
-      private
-
-      def parse(xml)
-        ::Ox.parse(xml)
+        response.body
       end
     end
   end
